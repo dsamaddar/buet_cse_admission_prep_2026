@@ -1,0 +1,20 @@
+The admission test questions will include the following topics:
+
+Structured Programming
+Object Oriented Programming
+Discrete Mathematics
+Concrete Mathematics, Probability and Statistics
+Data Structures
+Algorithms
+
+Compiler and Theory of Computation
+https://www.youtube.com/watch?v=O5mYCNu_6vk&list=PLBlnK6fEyqRhd3kSEsaT5rxvVnIh4UK-r
+
+Database
+Computer Network
+Computer Security
+Software Engineering and Information Systems Design
+Digital Logic Design
+Computer Architecture, Microprocessors and Microcontrollers
+Operating Systems
+Artificial Intelligence & Machine Learning

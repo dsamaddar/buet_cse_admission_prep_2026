@@ -1,0 +1,489 @@
+Find output  for operation e.g. --,  y= -m -- what is the value  of Y and m. etc. two to three questions of this type.
+
+[Question-01]
+#include <stdio.h>
+
+int main()
+{
+    int m = 10, y;
+
+    y = -m--;
+
+    printf("y = %d, m = %d", y, m);
+
+    return 0;
+}
+
+What is the output?
+
+A) y = -10, m = 9
+B) y = -9, m = 9
+C) y = -10, m = 10
+D) y = 9, m = 9
+
+Answer: A) y = -10, m = 9
+
+Why? m-- uses the current value first, then decreases it.
+
+m = 10 → used as 10
+y = -10
+Then m becomes 9
+
+[Question 2]
+
+#include <stdio.h>
+
+int main()
+{
+    int m = 10, y;
+
+    y = - --m;
+
+    printf("y = %d, m = %d", y, m);
+
+    return 0;
+}
+
+What is the output?
+
+A) y = -10, m = 9
+B) y = -9, m = 9
+C) y = -10, m = 10
+D) y = 9, m = 9
+
+Answer: B) y = -9, m = 9
+
+Why? --m decreases m before its value is used.
+
+m = 10 → becomes 9
+y = -9
+
+[Question 3]
+
+#include <stdio.h>
+
+int main()
+{
+    int m = 5, y;
+
+    y = m++ + --m;
+
+    printf("y = %d, m = %d", y, m);
+
+    return 0;
+}
+
+Question: What is the output?
+
+A) y = 10, m = 5
+B) y = 11, m = 5
+C) y = 10, m = 6
+D) y = 9, m = 5
+
+Important: This is actually a trick question. In C, modifying the same variable more than once between sequence points can lead to undefined behavior depending on the expression. So do not use this type of expression as a valid output question.
+
+For exam practice, it's safer to use separate statements.
+
+Rule to remember:
+
+Operator	Meaning				Example m = 10
+-----------------------------------------------------------------------------
+m++		Use first, increase later	value used = 10, then m = 11
+++m		Increase first, use later	m = 11, value used = 11
+m--		Use first, decrease later	value used = 10, then m = 9
+--m		Decrease first, use later	m = 9, value used = 9
+
+
+[#####]
+[***] Create a program using a structure of 50 students to find their total obtained marks. And if the total mark is less than 50% then he fails.
+
+
+#include <stdio.h>
+
+#define STUDENTS 50
+#define SUBJECTS 5
+
+struct Student
+{
+    char name[50];
+    int marks[SUBJECTS];
+    int total;
+};
+
+int main()
+{
+    struct Student students[STUDENTS];
+    int i, j;
+
+    // Input information for 50 students
+    for (i = 0; i < STUDENTS; i++)
+    {
+        printf("\nEnter information for student %d\n", i + 1);
+
+        printf("Enter name: ");
+        scanf("%s", students[i].name);
+
+        students[i].total = 0;
+
+        for (j = 0; j < SUBJECTS; j++)
+        {
+            printf("Enter marks for subject %d: ", j + 1);
+            scanf("%d", &students[i].marks[j]);
+
+            students[i].total += students[i].marks[j];
+        }
+    }
+
+    // Display result
+    printf("\n----- Student Results -----\n");
+
+    for (i = 0; i < STUDENTS; i++)
+    {
+        printf("\nName: %s", students[i].name);
+        printf("\nTotal Marks: %d / 500", students[i].total);
+
+        if (students[i].total < 250)
+            printf("\nResult: Fail\n");
+        else
+            printf("\nResult: Pass\n");
+    }
+
+    return 0;
+}
+
+[***] Use a recursive function to find a factorial number.
+
+#include <stdio.h>
+
+int factorial(int n)
+{
+    if (n == 0 || n == 1)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+
+int main()
+{
+    int n, result;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    result = factorial(n);
+
+    printf("Factorial of %d = %d", n, result);
+
+    return 0;
+}
+
+Example
+factorial(5)
+= 5 × factorial(4)
+= 5 × 4 × factorial(3)
+= 5 × 4 × 3 × factorial(2)
+= 5 × 4 × 3 × 2 × factorial(1)
+= 5 × 4 × 3 × 2 × 1
+= 120
+
+[***] Write a program for f(n)=f(n-1)+f(n-2) or Fibonacci sequence
+
+#include <stdio.h>
+
+int fibonacci(int n)
+{
+    if (n == 0)
+        return 0;
+    else if (n == 1)
+        return 1;
+    else
+        return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main()
+{
+    int n, i;
+
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
+
+    printf("Fibonacci Series: ");
+
+    for (i = 0; i < n; i++)
+    {
+        printf("%d ", fibonacci(i));
+    }
+
+    return 0;
+}
+
+example
+f(5)
+= f(4) + f(3)
+= 3 + 2
+= 5
+
+[***] Write a program which finds a palindrome number e.g. 242 is a palindrome number because the reverse is the same.
+
+#include <stdio.h>
+
+int reverse(int n)
+{
+    int rev = 0;
+
+    while (n > 0)
+    {
+        rev = rev * 10 + n % 10;
+        n = n / 10;
+    }
+
+    return rev;
+}
+
+int main()
+{
+    int n;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    if (n == reverse(n))
+        printf("Palindrome");
+    else
+        printf("Not Palindrome");
+
+    return 0;
+}
+
+[***] write down the bit & range of int,short int , char & like others
+
+Data Type	Size		Bits		Signed Range						Unsigned Range
+----------------------------------------------------------------------------------------------------------------------
+char		1 byte		8 bits		−128 to 127						0 to 255
+short int	2 bytes		16 bits		−32,768 to 32,767					0 to 65,535
+int		4 bytes		32 bits		
+long int	4/8 bytes	32/64 bits	
+long long int	8 bytes		64 bits
+float		4 bytes		32 bits
+double		8 bytes		64 bits
+long double	10/16 bytes*	80/128 bits*
+
+n bits signed:
+
+-2^(n-1) to 2^(n-1)-1
+
+n bits unsigned:
+0 to 2^n - 1
+
+[***] A switch statement can generally be converted into an equivalent if-else-if statement
+int n = 2;
+
+switch(n)
+{
+    case 1:
+        printf("One");
+        break;
+
+    case 2:
+        printf("Two");
+        break;
+
+    case 3:
+        printf("Three");
+        break;
+
+    default:
+        printf("Invalid");
+}
+
+Equivalent if-else expression:
+
+int n = 2;
+
+if(n == 1)
+{
+    printf("One");
+}
+else if(n == 2)
+{
+    printf("Two");
+}
+else if(n == 3)
+{
+    printf("Three");
+}
+else
+{
+    printf("Invalid");
+}
+
+[***]
+OOP Features explanation
+
+Encapsulation
+
+Encapsulation is the process of binding data and methods together in a single class and restricting direct access to the data.
+
+class Student
+{
+    private int marks;
+
+    public void SetMarks(int m)
+    {
+        marks = m;
+    }
+}
+
+Here, marks is private and cannot be accessed directly from outside the class.
+
+Abstraction
+Abstraction is the process of hiding unnecessary implementation details and showing only the essential.
+
+abstract class Animal
+{
+    public abstract void Sound();
+}
+
+class Dog : Animal
+{
+    public override void Sound()
+    {
+        Console.WriteLine("Dog barks");
+    }
+}
+
+Here, the implementation of Sound() is hidden in the abstract class.
+
+Inheritance
+Inheritance is a feature by which one class acquires the properties and methods of another class.
+
+class Animal
+{
+    public void Eat()
+    {
+        Console.WriteLine("Eating");
+    }
+}
+
+class Dog : Animal
+{
+    public void Bark()
+    {
+        Console.WriteLine("Barking");
+    }
+}
+
+Here, Dog inherits the Eat() method from Animal.
+
+Polymorphism
+Polymorphism means one method or function can have different forms or behaviors
+
+class Animal
+{
+    public virtual void Sound()
+    {
+        Console.WriteLine("Animal sound");
+    }
+}
+
+class Dog : Animal
+{
+    public override void Sound()
+    {
+        Console.WriteLine("Dog barks");
+    }
+}
+
+Here, the Sound() method behaves differently in the Animal and Dog classes.
+
+[***]
+Function to Swap Two Integer Variables Using Pointers
+
+#include <stdio.h>
+
+void swap(int *a, int *b)
+{
+    int temp;
+
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main()
+{
+    int x = 10, y = 20;
+
+    swap(&x, &y);
+
+    printf("x = %d\n", x);
+    printf("y = %d\n", y);
+
+    return 0;
+}
+
+Explanation:
+&x and &y pass the addresses of the variables to the function. The pointers a and b access the actual values using *a and *b, so the original variables are swapped.
+
+[***]
+Switch Statement (tricky.)
+* Duplicate case values are not allowed.
+* In C, the value after case must be a constant expression.
+* In C, switch expression must be type (int, char, short, enum) not-allowed (float, double)
+* If break is not present, C continues executing the next statements after the first match
+
+[***]
+Difference Between Function Overloading and Function Overriding
+Function Overloading (Same name + different parameters)
+Function overloading means having multiple functions with the same name but different parameters in the same class.
+
+class Calculator
+{
+    int Add(int a, int b)
+    {
+        return a + b;
+    }
+
+    int Add(int a, int b, int c)
+    {
+        return a + b + c;
+    }
+}
+
+Here, both functions are named Add(), but their parameters are different.
+
+Function Overriding (Same name + same parameters + parent/child class)
+Function overriding means redefining a function of the parent class in the child class with the same name and parameters.
+
+class Animal
+{
+    public virtual void Sound()
+    {
+        Console.WriteLine("Animal makes sound");
+    }
+}
+
+class Dog : Animal
+{
+    public override void Sound()
+    {
+        Console.WriteLine("Dog barks");
+    }
+}
+
+Here, Dog overrides the Sound() function of Animal.
+
+Function Overloading				Function Overriding
+-------------------------------------------------------------------------------------------------
+Same function name, different parameters	Same function name, same parameters
+Usually occurs within the same class		Occurs between parent and child classes
+Provides different ways of calling a function	Provides different implementation of a function
+Compile-time polymorphism			Runtime polymorphism
+Add(int, int) and Add(int, int, int)		Animal.Sound() → Dog.Sound()
+
+
+[***]
+Equation to convert 2 dimensional arrays to one dimensional array. (row major order/ column major order)
+https://www.youtube.com/watch?v=NlWEdScxU9k
+https://www.geeksforgeeks.org/dsa/row-major-order-and-column-major-order/
+

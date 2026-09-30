@@ -1,0 +1,141 @@
+Questions: 
+
+1.multiply bit(multiplication of two 2 digit numbers with only three 1 bit multiplication)
+
+==================================================================================================
+2.implement max heap sort(algorithm)
+
+Max Heap Sort
+
+HEAPIFY(A, n, i)
+    largest = i
+    left = 2*i + 1
+    right = 2*i + 2
+
+    if left < n AND A[left] > A[largest]
+        largest = left
+
+    if right < n AND A[right] > A[largest]
+        largest = right
+
+    if largest != i
+        swap(A[i], A[largest])
+        HEAPIFY(A, n, largest)
+
+
+HEAPSORT(A, n)
+    // Build Max Heap
+    for i = n/2 - 1 down to 0
+        HEAPIFY(A, n, i)
+
+    // Extract maximum one by one
+    for i = n-1 down to 1
+        swap(A[0], A[i])
+        HEAPIFY(A, i, 0)
+
+Time Complexity:
+
+Build Max Heap: O(n)
+Heap Sort: O(n log n)
+Best/Average/Worst: O(n log n)
+
+Space Complexity: O(1) auxiliary space.
+
+Result: Max-Heap Sort produces the elements in ascending order.
+==================================================================================================
+
+3.why pentium is superscaler processor?
+The Intel Pentium processor is called a superscalar processor because it has multiple execution pipelines 
+and can execute more than one instruction simultaneously in a single clock cycle.The original Pentium had two integer pipelines, 
+called the U-pipe and V-pipe. Under suitable conditions, two independent instructions could be issued and executed at the same time.
+
+Therefore:
+
+Superscalar → Multiple pipelines → Multiple instructions per clock cycle
+
+==================================================================================================
+4.advantages of microcontoller over microprocessor
+
+Advantages of Microcontroller over Microprocessor
+
+A microcontroller integrates the CPU, memory, I/O ports, timers, counters, and other peripherals on a single chip. Therefore, it has several advantages over a microprocessor:
+
+Lower cost – Requires fewer external components.
+Smaller size – Most required components are integrated into one chip.
+Lower power consumption – Suitable for battery-operated and embedded systems.
+Higher reliability – Fewer external connections/components reduce the chance of failure.
+Simpler circuit design – Memory, I/O, timers, etc. are already integrated.
+Faster for dedicated applications – Designed for specific control-oriented tasks.
+Easy to interface – Built-in I/O ports and peripherals simplify interfacing with sensors and actuators.
+
+Examples of applications: washing machines, traffic lights, remote controls, automobiles, and IoT devices.
+
+==================================================================================================
+
+7.draw a weighted graph given adjacency matrix
+https://www.youtube.com/watch?v=Slf4yAmmSjs
+
+* Dijkstra Algorithm
+https://www.youtube.com/watch?v=XB4MIexjvY0
+
+8.pert chart(find critical path & projected time)
+https://www.youtube.com/watch?v=Us5YtgvfomQ
+
+==================================================================================================
+9.method to find out how many times an object has been instantiated in java.
+
+class Student 
+{ 
+	static int count = 0; 
+	Student() 
+	{ 
+		count++; 
+	} 
+} 
+
+public class Main 
+{ 
+	public static void main(String[] args) 
+	{ 
+		Student s1 = new Student(); 
+		Student s2 = new Student(); 
+		Student s3 = new Student(); 
+		System.out.println("Objects created: " + Student.count); 
+	} 
+
+}
+
+==================================================================================================
+10.char array reverse(without using temp array and STL lib func)
+
+#include <iostream> 
+using namespace std; 
+
+int main() 
+{ 
+	char a[] = "HELLO"; 
+	int i = 0; 
+	int j = 4; // last index 
+
+	while (i < j) 
+	{ 
+		char temp = a[i]; 
+		a[i] = a[j]; a[j] = temp; 
+		i++; 
+		j--; 
+	}
+ 
+	cout << a; return 0; 
+}
+==================================================================================================
+11.copy constructor leap year func pigeonhole principle(6 numbers,show at least 2 of them having same remainder after dividing
+
+Pigeonhole Principle:
+
+n+1 objects in n boxes⇒at least 2 objects in the same box
+	​
+
+
+5) proof by contradiction of(a^2+b^2=c^2,there exists only 1 case such that a,b,c are consecutive non negative integers(3,4,5). verify list is sorted(procedure writing) defect removal efficiency AI local search,Global search(exmaple application of both) AI A*, RBFS 2*4 decoder using only basic gates(AND,OR,NOT) Kmap relational algebra ERD(constraint) CFG(odd length pallindrome) cache math stack using single linked list process state diagram binary semaphore relationship in use case diagram,describe any of them.
+
+Role of a linker. define types of processor for the following lang: python,c/c++,java

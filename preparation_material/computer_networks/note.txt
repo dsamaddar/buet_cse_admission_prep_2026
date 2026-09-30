@@ -1,0 +1,31 @@
+5-4-3 Rule
+--------------------
+The 5-4-3 rule is an old Ethernet networking rule for 10BASE5/10BASE2 shared, half-duplex Ethernet using repeaters.
+
+In a network segment using repeaters:
+
+5 → Maximum 5 cable segments
+4 → Maximum 4 repeaters
+3 → Maximum 3 segments can have active/connected stations
+
+5 segments, 4 repeaters, 3 populated segments.
+
+The 5-4-3 rule is a traditional Ethernet rule for shared networks. It allows a maximum of 5 cable segments connected by 4 repeaters, with only 3 segments containing active network devices. The rule limits propagation delay so that CSMA/CD can operate correctly.
+
+--------------------------------------------------------------------------
+NetBIOS
+
+NetBIOS (Network Basic Input/Output System) is an application programming interface (API) that provides communication services between applications running on computers over a network. It provides name service, session service, and datagram service. NetBIOS itself is not a routing protocol and traditionally works with underlying network protocols such as TCP/IP.
+
+NetBEUI
+
+NetBEUI (NetBIOS Extended User Interface) is a small and fast network protocol developed for local area networks (LANs). It provides communication services for NetBIOS applications but is non-routable, so it is suitable mainly for small networks where communication does not need to cross routers.
+
+Difference
+NetBIOS						NetBEUI
+An API/interface				A network protocol
+Provides network communication services		Provides protocol-level communication
+Supports name, session and datagram services	Designed for LAN communication
+Can work over protocols such as TCP/IP		Non-routable
+More general concept				Mainly suitable for small LANs
+--------------------------------------------------------------------------
